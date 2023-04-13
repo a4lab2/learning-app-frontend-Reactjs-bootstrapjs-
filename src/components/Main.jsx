@@ -32,6 +32,7 @@ import TeacherProfileSetting from './teacher/TeacherProfileSetting'
 import AddCourse from './teacher/AddCourse'
 import TeacherMyCourses from './teacher/TeacherMyCourses'
 import TeacherMyUsers from './teacher/TeacherMyUsers'
+import AllCourses from './AllCourses'
 // TeacherLogin
 // TeacherRegister
 // TeacherMyCourses
@@ -42,6 +43,8 @@ const main = () => {
             <Header />
             <Switch>
                 <Route path="/" element={<Home />} />
+                <Route path="/all-courses" element={<AllCourses />} />
+
                 <Route path="/about" element={<About />} />
                 <Route path="/detail/:course_id" element={<CourseDetail />} />
 

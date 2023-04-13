@@ -16,21 +16,43 @@ const CourseDetail = () => {
                     <small>
 
                         <p className='fw-bold'>Course By:<Link to="/teacher-detail/1">Teacher 1</Link></p>
-                        <p className='fw-bold'>Duration:<a href="">3 Hours 30 Minutes</a></p>
-                        <p className='fw-bold'>Total Students:<a href="">300</a></p>
+                        <p className='fw-bold'>Duration: <a href="">3 Hours 30 Minutes</a></p>
+                        <p className='fw-bold'>Total Students: <a href="">300</a></p>
                         <p className='fw-bold'>Rating: 4/5</p>
                     </small>
 
                 </div>
             </div>
             <div className="card mt-4 text-start" >
-                <div class="card-header">
+                <div className="card-header">
                     Course Videos
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li className="list-group-item">Introduction   <span className='float-end'><span className='me-3'>2 Hours 43 Minutes</span><button className='btn btn-sm btn-danger '><i class="bi bi-youtube"></i></button></span></li>
-                    <li className="list-group-item">Setup   <span className='float-end'><span className='me-3'>2 Hours 43 Minutes</span><button className='btn btn-sm btn-danger '><i class="bi bi-youtube"></i></button></span></li>
-                    <li className="list-group-item">Cook   <span className='float-end'><span className='me-3'>2 Hours 43 Minutes</span><button className='btn btn-sm btn-danger '><i class="bi bi-youtube"></i></button></span></li>
+                <ul className="list-group list-group-flush">
+                    <li className="list-group-item">Introduction   <span className='float-end'><span className='me-3'>2 Hours 43 Minutes</span><button className='btn btn-sm btn-danger ' data-bs-toggle="modal" data-bs-target="#VideoModal1"><i className="bi bi-youtube"></i></button></span>
+
+
+
+                        {/* video modal  */}
+                        <div className="modal fade" id="VideoModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog modal-dialog-centered modal-xl">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h1 className="modal-title fs-5" id="exampleModalLabel">Video 1</h1>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li className="list-group-item">Setup   <span className='float-end'><span className='me-3'>2 Hours 43 Minutes</span><button className='btn btn-sm btn-danger '><i className="bi bi-youtube"></i></button></span></li>
+                    <li className="list-group-item">Cook   <span className='float-end'><span className='me-3'>2 Hours 43 Minutes</span><button className='btn btn-sm btn-danger '><i className="bi bi-youtube"></i></button></span></li>
 
                 </ul>
             </div>

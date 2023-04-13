@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import AllCourses from './AllCourses'
 
-
+// AllCourses
 const Home = () => {
     return (
 
         <div className="container mt-4">
 
-            <h3 className='pb-1 mb-2'>Latest Courses <a className='float-end' href="">See all</a></h3>
+            <h3 className='pb-1 mb-2'>Latest Courses <Link className='float-end' to="/all-courses">See all</Link></h3>
             <div className="row">
                 <div className="col-md-3">
                     <div className="card" >
