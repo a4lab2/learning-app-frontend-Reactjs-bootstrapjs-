@@ -12,7 +12,7 @@ const TeacherSidebar = () => {
                 <Link to="/add-course" className='list-group-item list-group-item-action'>Add Courses</Link>
                 <Link to="/teacher-profile-setting" className='list-group-item list-group-item-action'>Profile Setting</Link>
                 <Link to="/teacher-change-password" className='list-group-item list-group-item-action'>Change Password</Link>
-                <Link to="/teacher-login" className='text-danger list-group-item list-group-item-action'>Logout</Link>
+                <Link to="/teacher-logout" className='text-danger list-group-item list-group-item-action'>Logout</Link>
             </div>
         </div>
     )

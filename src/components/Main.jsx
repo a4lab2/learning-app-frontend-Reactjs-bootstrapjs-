@@ -33,6 +33,13 @@ import AddCourse from './teacher/AddCourse'
 import TeacherMyCourses from './teacher/TeacherMyCourses'
 import TeacherMyUsers from './teacher/TeacherMyUsers'
 import AllCourses from './AllCourses'
+// CategoryCourses
+import PopularTeachers from './PopularTeachers'
+import PopularCourses from './PopularCourses'
+import CategoryCourses from './CategoryCourses'
+import TeacherLogout from './teacher/TeacherLogout'
+import AddChapter from './teacher/AddChapter'
+// PopularCourses
 // TeacherLogin
 // TeacherRegister
 // TeacherMyCourses
@@ -44,10 +51,11 @@ const main = () => {
             <Switch>
                 <Route path="/" element={<Home />} />
                 <Route path="/all-courses" element={<AllCourses />} />
-
+                <Route path="/popular-teachers" element={<PopularTeachers />} />
+                <Route path="/popular-courses" element={<PopularCourses />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/detail/:course_id" element={<CourseDetail />} />
-
+                <Route path="/category/:category_slug" element={<CategoryCourses />} />
 
                 <Route path="/user-login" element={<Login />} />
                 <Route path="/user-register" element={<Register />} />
@@ -63,6 +71,9 @@ const main = () => {
 
 
                 <Route path="/teacher-login" element={<TeacherLogin />} />
+                <Route path="/teacher-logout" element={<TeacherLogout />} />
+
+
                 <Route path="/teacher-register" element={<TeacherRegister />} />
                 <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
                 <Route path="/teacher-change-password" element={<TeacherChangePassword />} />
@@ -71,6 +82,8 @@ const main = () => {
                 <Route path="/my-users" element={<TeacherMyUsers />} />
                 <Route path="/teacher-my-courses" element={<TeacherMyCourses />} />
                 <Route path="/add-course" element={<AddCourse />} />
+
+                <Route path="/add-chapter/:course_id" element={<AddChapter />} />
 
 
 

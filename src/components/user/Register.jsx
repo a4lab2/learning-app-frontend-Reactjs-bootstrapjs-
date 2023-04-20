@@ -30,7 +30,7 @@ const Register = () => {
                                 <div className="mb-3">
                                     <label for="exampleInputEmail1" className="form-label">Interest</label>
                                     <textarea className='form-control' name="" ></textarea>
-                                    <div id="emailHelp" class="form-text">python,golang,php.</div>
+                                    <div id="emailHelp" className="form-text">python,golang,php.</div>
                                 </div>
 
                                 <button type="submit" className="btn btn-primary">Register</button>

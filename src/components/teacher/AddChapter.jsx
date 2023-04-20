@@ -1,55 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import TeacherSidebar from './TeacherSidebar'
 import axios from 'axios';
-const baseUrl = 'http://127.0.0.1:8000/api'
-const AddCourse = () => {
-    const teacherId = localStorage.getItem('teacherId')
+import { useParams } from 'react-router-dom';
 
+const baseUrl = 'http://127.0.0.1:8000/api'
+const AddChapter = () => {
+    // const teacherId = localStorage.getItem('teacherId')
+    const { course_id } = useParams()
     const [cats, setcats] = useState([]);
-    const [courseData, setcourseData] = useState({
-        category: '',
+    const [chapterData, setchapterData] = useState({
+
         title: '',
         description: '',
-        f_img: '',
-        techs: '',
+        video: '',
+        remarks: '',
 
     });
-    useEffect(() => {
-        try {
-            axios.get(baseUrl + '/category').then((r) => {
-                console.log(r)
-                setcats(r.data)
-            })
-        } catch (error) {
-            console.log(error)
-        }
-    }, []);
+
 
     const handleChange = (e) => {
-        setcourseData({ ...courseData, [e.target.name]: e.target.value })
+        setchapterData({ ...chapterData, [e.target.name]: e.target.value })
     }
 
     const handleFileChange = (e) => {
-        setcourseData({ ...courseData, [e.target.name]: e.target.files[0] })
+        setchapterData({ ...chapterData, [e.target.name]: e.target.files[0] })
     }
-
+    // console.log(course_id)
 
     const formSubmit = () => {
         const _formData = new FormData();
-        _formData.append('category', courseData.category)
-        _formData.append('teacher', teacherId)
-        _formData.append('title', courseData.title)
 
-        _formData.append('description', courseData.description)
-        _formData.append('featured_img', courseData.f_img, courseData.f_img.name)
-        _formData.append('techs', courseData.techs)
+        _formData.append('course', course_id)
+        _formData.append('title', chapterData.title)
+        _formData.append('description', chapterData.description)
+        _formData.append('video', chapterData.video, chapterData.video.name)
+        _formData.append('remarks', chapterData.remarks)
         try {
-            axios.post(baseUrl + '/course/', _formData, {
+            axios.post(baseUrl + '/chapter/', _formData, {
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             }).then((r) => {
-                window.location.href = '/add-course'
+                window.location.href = '/add-chapter/1'
             })
         } catch (error) {
             console.log(error)
@@ -67,17 +59,6 @@ const AddCourse = () => {
                         <h5 className='card-header'>My Dashboard</h5>
                         <div className="card-body">
 
-                            <div className="mb-3 row">
-                                <label for="staticEmail" className="col-sm-4 col-form-label">Category</label>
-                                <div className="col-sm-8">
-                                    <select name="category" onChange={handleChange} className='form-control' id="">
-                                        {cats.map((category, index) => {
-                                            return <option key={index} value={category.id}>{category.title}</option>
-                                        })}
-
-                                    </select>
-                                </div>
-                            </div>
 
 
                             <div className="mb-3 row">
@@ -94,15 +75,15 @@ const AddCourse = () => {
                             </div>
 
                             <div className="mb-3 row">
-                                <label for="staticEmail" className="col-sm-4 col-form-label">Featured Image</label>
+                                <label for="staticEmail" className="col-sm-4 col-form-label">Video</label>
                                 <div className="col-sm-8">
-                                    <input type="file" name='f_img' onChange={handleFileChange} className="form-control" id="staticEmail" />
+                                    <input type="file" name='video' onChange={handleFileChange} className="form-control" id="staticEmail" />
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label for="staticEmail" className="col-sm-4 col-form-label">Technologies</label>
+                                <label for="staticEmail" className="col-sm-4 col-form-label">Remarks</label>
                                 <div className="col-sm-8">
-                                    <textarea onChange={handleChange} className='form-control' name="techs" ></textarea>                                </div>
+                                    <textarea onChange={handleChange} className='form-control' name="remarks" ></textarea>                                </div>
                             </div>
                             <hr />
                             <button onClick={formSubmit} className='btn btn-primary'>Submit</button>
@@ -115,4 +96,4 @@ const AddCourse = () => {
     )
 }
 
-export default AddCourse
+export default AddChapter

@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 const Header = () => {
+    const teacherLoginStatus = localStorage.getItem('teacherLoginStatus')
+
+
     return (
 
 
@@ -16,34 +19,38 @@ const Header = () => {
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Courses</a>
+                            <Link className="nav-link" to="/all-courses">Courses</Link>
                         </li>
 
 
-                        <li class="nav-item dropdown">
+                        <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Teacher
                             </a>
-                            <ul class="dropdown-menu">
 
-                                <li className="">
-                                    <Link className="dropdown-item" to="/teacher-login"> Login</Link>
-                                </li>
+                            <ul className="dropdown-menu">
+                                {!teacherLoginStatus && <>
+                                    <li className="">
+                                        <Link className="dropdown-item" to="/teacher-login"> Login</Link>
+                                    </li>
 
-                                <li className="">
-                                    <Link className="dropdown-item" to="/teacher-register"> Register</Link>
-                                </li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="/teacher-dashboard">Dashboard</a></li>
-                                <li><Link class="dropdown-item" to="/teacher-login">logout</Link></li>
+                                    <li className="">
+                                        <Link className="dropdown-item" to="/teacher-register"> Register</Link>
+                                    </li>
+                                </>}
+                                {teacherLoginStatus && <>
+                                    <li><a className="dropdown-item" href="/teacher-dashboard">Dashboard</a></li>
+                                    <li><Link className="dropdown-item" to="/teacher-logout">logout</Link></li>
+                                </>
+                                }
                             </ul>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 User
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul className="dropdown-menu">
 
                                 <li className="">
                                     <Link className="dropdown-item" to="/user-login"> Login</Link>
@@ -52,9 +59,9 @@ const Header = () => {
                                 <li className="">
                                     <Link className="dropdown-item" to="/user-register"> Register</Link>
                                 </li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="/user-dashboard">Dashboard</a></li>
-                                <li><Link class="dropdown-item" to="/user-login">logout</Link></li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <li><a className="dropdown-item" href="/user-dashboard">Dashboard</a></li>
+                                <li><Link className="dropdown-item" to="/user-login">logout</Link></li>
                             </ul>
                         </li>
                     </ul>

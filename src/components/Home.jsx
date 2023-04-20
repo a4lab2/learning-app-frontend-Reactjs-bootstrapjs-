@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AllCourses from './AllCourses'
+import PopularTeachers from './PopularTeachers'
+import PopularCourses from './PopularCourses'
 
+// PopularTeachers
+// PopularCourses
 // AllCourses
 const Home = () => {
+    useEffect(() => { document.title = 'LMS Home Page' })
     return (
 
         <div className="container mt-4">
@@ -12,88 +17,137 @@ const Home = () => {
             <div className="row">
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="lang.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Card title</h5>
                             <Link to="detail/1" className="">Course Title</Link>
                         </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <a href="#" className="">Course Title</a>
+                        <div className="card-footer">
+                            <div className="title">
+                                <span className=''> Rating: 4.5 </span>
+                                <span className='float-end'> Views: 400 </span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="lang.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Card title</h5>
-                            <a href="#" className="">Course Title</a>
+                            <Link to="detail/1" className="">Course Title</Link>
+                        </div>
+                        <div className="card-footer">
+                            <div className="title">
+                                <span className=''> Rating: 4.5 </span>
+                                <span className='float-end'> Views: 400 </span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="lang.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Card title</h5>
-                            <a href="#" className="">Course Title</a>
+                            <Link to="detail/1" className="">Course Title</Link>
+                        </div>
+                        <div className="card-footer">
+                            <div className="title">
+                                <span className=''> Rating: 4.5 </span>
+                                <span className='float-end'> Views: 400 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-3">
+                    <div className="card" >
+                        <img src="lang.png" className="card-img-top" alt="..." />
+                        <div className="card-body">
+                            <h5 className="card-title">Card title</h5>
+                            <Link to="detail/1" className="">Course Title</Link>
+                        </div>
+                        <div className="card-footer">
+                            <div className="title">
+                                <span className=''> Rating: 4.5 </span>
+                                <span className='float-end'> Views: 400 </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h3 className='pb-1 my-4 mt-5'>Popular Courses <a className='float-end' href="">See all</a></h3>
+            <h3 className='pb-1 my-4 mt-5'>Popular Courses <Link className='float-end' to="/popular-courses">See all</Link></h3>
             <div className="row">
+
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="lang.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Card title</h5>
-                            <a href="#" className="">Course Title</a>
+                            <Link to="detail/1" className="">Course Title</Link>
+                        </div>
+                        <div className="card-footer">
+                            <div className="title">
+                                <span className=''> Rating: 4.5 </span>
+                                <span className='float-end'> Views: 400 </span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="lang.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Card title</h5>
-                            <a href="#" className="">Course Title</a>
+                            <Link to="detail/1" className="">Course Title</Link>
+                        </div>
+                        <div className="card-footer">
+                            <div className="title">
+                                <span className=''> Rating: 4.5 </span>
+                                <span className='float-end'> Views: 400 </span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="lang.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Card title</h5>
-                            <a href="#" className="">Course Title</a>
+                            <Link to="detail/1" className="">Course Title</Link>
+                        </div>
+                        <div className="card-footer">
+                            <div className="title">
+                                <span className=''> Rating: 4.5 </span>
+                                <span className='float-end'> Views: 400 </span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="lang.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Card title</h5>
-                            <a href="#" className="">Course Title</a>
+                            <Link to="detail/1" className="">Course Title</Link>
+                        </div>
+                        <div className="card-footer">
+                            <div className="title">
+                                <span className=''> Rating: 4.5 </span>
+                                <span className='float-end'> Views: 400 </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <h3 className='pb-1 my-4 mt-5'>Popular Teachers <a className='float-end' href="">See all</a></h3>
+            <h3 className='pb-1 my-4 mt-5'>Popular Teachers <Link className='float-end' to="/popular-teachers">See all</Link></h3>
             <div className="row">
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="teacher.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title"><a href="#" className="">Teacher Name</a></h5>
                         </div>
@@ -101,7 +155,7 @@ const Home = () => {
                 </div>
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="teacher.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title"><a href="#" className="">Teacher Name</a></h5>
                         </div>
@@ -109,7 +163,7 @@ const Home = () => {
                 </div>
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="teacher.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title"><a href="#" className="">Teacher Name</a></h5>
                         </div>
@@ -117,7 +171,7 @@ const Home = () => {
                 </div>
                 <div className="col-md-3">
                     <div className="card" >
-                        <img src="logo192.png" className="card-img-top" alt="..." />
+                        <img src="teacher.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title"><a href="#" className="">Teacher Name</a></h5>
                         </div>
@@ -135,31 +189,31 @@ const Home = () => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <figure class="text-center">
-                            <blockquote class="blockquote">
+                        <figure className="text-center">
+                            <blockquote className="blockquote">
                                 <p>A well-known quote, contained in a blockquote element.</p>
                             </blockquote>
-                            <figcaption class="blockquote-footer">
+                            <figcaption className="blockquote-footer">
                                 Someone famous in <cite title="Source Title">Source Title</cite>
                             </figcaption>
                         </figure>
                     </div>
                     <div className="carousel-item ">
-                        <figure class="text-center">
-                            <blockquote class="blockquote">
+                        <figure className="text-center">
+                            <blockquote className="blockquote">
                                 <p>A well-known quote, contained in a blockquote element.</p>
                             </blockquote>
-                            <figcaption class="blockquote-footer">
+                            <figcaption className="blockquote-footer">
                                 Someone famous in <cite title="Source Title">Source Title</cite>
                             </figcaption>
                         </figure>
                     </div>
                     <div className="carousel-item ">
-                        <figure class="text-center">
-                            <blockquote class="blockquote">
+                        <figure className="text-center">
+                            <blockquote className="blockquote">
                                 <p>A well-known quote, contained in a blockquote element.</p>
                             </blockquote>
-                            <figcaption class="blockquote-footer">
+                            <figcaption className="blockquote-footer">
                                 Someone famous in <cite title="Source Title">Source Title</cite>
                             </figcaption>
                         </figure>
