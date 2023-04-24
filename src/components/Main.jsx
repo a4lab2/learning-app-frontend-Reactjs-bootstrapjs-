@@ -9,6 +9,7 @@ import { Routes as Switch, Route } from 'react-router-dom'
 import CourseDetail from './CourseDetail'
 import TeacherDetail from './TeacherDetail'
 
+import CategoryCourses from './CategoryCourses'
 
 
 
@@ -30,15 +31,18 @@ import TeacherDashboard from './teacher/TeacherDashboard'
 import TeacherChangePassword from './teacher/TeacherChangePassword'
 import TeacherProfileSetting from './teacher/TeacherProfileSetting'
 import AddCourse from './teacher/AddCourse'
+import EditCourse from './teacher/EditCourse'
 import TeacherMyCourses from './teacher/TeacherMyCourses'
 import TeacherMyUsers from './teacher/TeacherMyUsers'
 import AllCourses from './AllCourses'
 // CategoryCourses
 import PopularTeachers from './PopularTeachers'
 import PopularCourses from './PopularCourses'
-import CategoryCourses from './CategoryCourses'
+// import CategoryCourses from './CategoryCourses'
 import TeacherLogout from './teacher/TeacherLogout'
 import AddChapter from './teacher/AddChapter'
+import EditChapter from './teacher/EditChapter'
+import CourseChapters from './teacher/CourseChapters'
 // PopularCourses
 // TeacherLogin
 // TeacherRegister
@@ -51,6 +55,7 @@ const main = () => {
             <Switch>
                 <Route path="/" element={<Home />} />
                 <Route path="/all-courses" element={<AllCourses />} />
+                <Route path="/all-chapters/:course_id/" element={<CourseChapters />} />
                 <Route path="/popular-teachers" element={<PopularTeachers />} />
                 <Route path="/popular-courses" element={<PopularCourses />} />
                 <Route path="/about" element={<About />} />
@@ -84,10 +89,14 @@ const main = () => {
                 <Route path="/add-course" element={<AddCourse />} />
 
                 <Route path="/add-chapter/:course_id" element={<AddChapter />} />
+                <Route path="/edit-course/:course_id" element={<EditCourse />} />
 
 
 
                 <Route path="/teacher-detail/:teacher_id" element={<TeacherDetail />} />
+
+                <Route path="/edit-chapter/:chapter_id" element={<EditChapter />} />
+
 
             </Switch>
 

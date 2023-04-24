@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import TeacherSidebar from './TeacherSidebar'
 import axios from 'axios'
 // axios
-// Sidebar
+// Sidebaruse
 
 const baseUrl = 'http://127.0.0.1:8000/api/'
 const TeacherMyCourses = () => {
     const [courseData, setcourseData] = useState([]);
     const teacherId = localStorage.getItem('teacherId')
+    // const { course_id } = useParams()
+
     useEffect(() => {
         try {
-            axios.get(baseUrl + 'teacher-course/' + teacherId).then((r) => {
+            axios.get(baseUrl + 'teacher-courses/' + teacherId).then((r) => {
                 console.log(r)
                 setcourseData(r.data)
             })
@@ -41,12 +43,14 @@ const TeacherMyCourses = () => {
                                 <tbody>
                                     {courseData.map((course, index) =>
                                         < tr key={index}>
-                                            <td> {course.title}</td>
+                                            <td> <Link to={"/all-chapters/" + course.id}>{course.title}</Link></td>
                                             <td> <img src={course.featured_img} alt={course.title} width="80" className='rounded' /></td>
                                             <td>123</td>
                                             <td>
-                                                <Link to="/"> <button className='btn btn-danger btn-sm'>Delete</button></Link>
+                                                <Link className='btn btn-info btn-sm ' to={'/edit-course/' + course.id}> Edit</Link>
                                                 <Link className='btn btn-primary btn-sm' to={'/add-chapter/' + course.id}> Add Chapter</Link>
+                                                <Link to="/"> <button className='btn btn-danger btn-sm'>Delete</button></Link>
+
                                             </td>
                                         </tr>
                                     )}

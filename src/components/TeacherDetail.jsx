@@ -1,7 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-// Link
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
+const baseUrl = 'http://127.0.0.1:8000/api/'
+
 const TeacherDetail = () => {
+    const { teacher_id } = useParams()
+    const [courseData, setcourseData] = useState([]);
+    const [teacherData, setTeacherData] = useState([]);
+    useEffect(() => {
+        try {
+            axios.get(baseUrl + 'teacher/' + teacher_id).then((r) => {
+                console.log(r)
+                setTeacherData(r.data)
+                setcourseData(r.data.teacher_courses)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }, [])
+    console.log(courseData)
+
     return (
         <div className='container mt-5'>
             <div className="row">
@@ -9,8 +27,8 @@ const TeacherDetail = () => {
                     <img src="/logo192.png" className='img-thumbnail' alt="teacher-image" />
                 </div>
                 <div className="col-8 text-start">
-                    <h3>John Otto</h3>
-                    <p>Using a combination of grid and utility classes, cards can be made horizontal in a mobile-friendly and responsive way. In the example below, we remove the grid gutters with .g-0 and use .col-md-* classes to make the card horizontal at the md breakpoint. Further adjustments may be needed depending on your card content.</p>
+                    <h3>{teacherData.full_name}</h3>
+                    <p>{teacherData.detail}</p>
                     <small>
 
                         <p className='fw-bold'>Skills: <Link to="/category/golang">Golang</Link>, <Link to="/category/php">PHP</Link>,
@@ -27,10 +45,14 @@ const TeacherDetail = () => {
                     Course List
                 </div>
                 <div className="list-group list-group-flush">
-                    <Link to="/detail/1" className='list-group-item list-group-item-action'>PHP introduction</Link>
-                    <Link to="/detail/1" className='list-group-item list-group-item-action'>JS Mastery</Link>
-                    <Link to="/detail/1" className='list-group-item list-group-item-action'>PHP Laravel</Link>
-                    <Link to="/detail/1" className='list-group-item list-group-item-action'>Gorilla Framework</Link>
+                    {
+                        courseData.map((course, index) =>
+                            <Link to={`/detail/${course.id}`} className='list-group-item list-group-item-action'>{course.title}</Link>
+
+                        )
+
+                    }
+
 
 
                 </div>

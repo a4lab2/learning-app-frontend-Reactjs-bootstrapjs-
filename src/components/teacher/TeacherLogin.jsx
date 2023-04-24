@@ -10,6 +10,7 @@ const TeacherLogin = () => {
         email: '',
         password: '',
     });
+    const [errorMsg, seterrorMsg] = useState("");
     const handleChange = (e) => {
         setTeacherLoginData({ ...TeacherLoginData, [e.target.name]: e.target.value })
     }
@@ -24,6 +25,9 @@ const TeacherLogin = () => {
                     localStorage.setItem('teacherLoginStatus', true)
                     localStorage.setItem('teacherId', r.data.teacher_id)
                     window.location.href = '/teacher-dashboard'
+                }
+                else {
+                    seterrorMsg("Invalid Username or password")
                 }
             })
         } catch (error) {
@@ -41,6 +45,7 @@ const TeacherLogin = () => {
                     <div className="card">
                         <h3 className='card-header'>Teacher login</h3>
                         <div className="card-body">
+                            {errorMsg && <p className='text-danger'>{errorMsg}</p>}
                             {/* <form> */}
                             <div className="mb-3">
                                 <label for="exampleInputEmail1" className="form-label">Email</label>

@@ -1,7 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 // Link
+const baseUrl = 'http://127.0.0.1:8000/api/'
 const CategoryCourses = () => {
+    const [courseData, setcourseData] = useState([]);
+    const { course_id } = useParams()
+
+    useEffect(() => {
+        try {
+            axios.get(baseUrl + 'course/').then((r) => {
+                console.log(r)
+                setcourseData(r.data)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }, [])
     return (
         <div className="container mt-4">
             <h3 className='pb-1 mb-2'>Golang Courses </h3>
